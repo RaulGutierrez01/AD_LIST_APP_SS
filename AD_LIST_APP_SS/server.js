@@ -5,9 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 //app.use(cors());
-app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
-});
+
 
 // Modelos de tu flota 737 series 
 const FLOTA_MODELOS = ["737-700", "737-800", "737-8", "737-9", "737-10"];
