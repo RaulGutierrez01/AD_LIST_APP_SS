@@ -2,9 +2,9 @@
   "name": "ad_list_app_ss",
   "version": "1.0.0",
   "description": "",
-  "main": "adlistapp.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node adlistapp.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
