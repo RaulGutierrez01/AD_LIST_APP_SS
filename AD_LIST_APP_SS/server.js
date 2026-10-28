@@ -9,7 +9,7 @@ app.listen(PORT, "0.0.0.0", () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'indexapp.html'));
+    res.sendFile(path.join(__dirname, 'Indexapp.html'));
 });
 
 // Modelos de tu flota 737 series 
