@@ -8,6 +8,9 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, "0.0.0.0", () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'indexapp.html'));
+});
 
 // Modelos de tu flota 737 series 
 const FLOTA_MODELOS = ["737-700", "737-800", "737-8", "737-9", "737-10"];
