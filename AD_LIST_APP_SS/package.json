@@ -1,0 +1,17 @@
+{
+  "name": "ad_list_app_ss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "adlistapp.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.3.0"
+  }
+}

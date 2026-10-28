@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1728">
+  <title>AD Control | Aviation Compliance</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" id="brandHome" aria-label="AD Control inicio">
+        <span class="brand-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 29.5 20.7 25l4-15.3c.4-1.5 2.5-1.5 2.9 0L31 25l10 4.5-10 2.7-4.5 7.2c-.7 1.1-2.3 1.1-3 0L19 32.2 7 29.5Z" fill="currentColor"/><path d="m16 28.1 8 2.2 8-2.2" fill="none" stroke="#0b1728" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        <span><strong>AD CONTROL</strong><small>AVIATION COMPLIANCE</small></span>
+      </a>
+      <div class="nav-label">WORKSPACE</div>
+      <button class="nav-item active" id="navDashboard" type="button"><span class="nav-icon">▦</span> Dashboard</button>
+      <button class="nav-item" id="navAD" type="button"><span class="nav-icon">↗</span> AD Control <span class="nav-count" id="sidebarCount">0</span></button>
+      <div class="sidebar-bottom">
+        <div class="status-card"><span class="status-dot"></span><div><strong>Servidor Activo</strong><small>Sincronización con FAA</small></div></div>
+        <div class="sidebar-foot">FAA AD MONITOR <span>•</span> LIVE Boeing 737</div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menú">☰</button>
+        <div class="breadcrumb"><span>Workspace</span><span class="crumb-sep">/</span><strong id="breadcrumbCurrent">Dashboard</strong></div>
+        <div class="topbar-right">
+          <span class="environment"><span class="status-dot"></span> QA DEPARTMENT</span>
+          <div class="avatar" title="Usuario">AC</div>
+        </div>
+      </header>
+
+      <section id="dashboardView" class="view">
+        <div class="page-heading dashboard-heading">
+          <div>
+            <div class="eyebrow">AVIATION COMPLIANCE WORKSPACE</div>
+            <h1>Buenos días, <span>equipo.</span></h1>
+            <p>Centraliza y consulta las directivas de aeronavegabilidad relevantes para tu flota de Boeing 737.</p>
+          </div>
+          <div class="date-chip"><span class="calendar-icon">▦</span><span id="todayLabel">Actualizado hoy</span></div>
+        </div>
+
+        <div class="hero-panel">
+          <div class="hero-content">
+            <div class="hero-tag"><span class="hero-tag-dot"></span> AIRWORTHINESS INTELLIGENCE</div>
+            <h2>Visibilidad clara.<br><span>Decisiones seguras.</span></h2>
+            <p>Una vista centralizada para revisar nuevas AD publicadas por la FAA, consultar sus detalles y priorizar los registros que requieren evaluación.</p>
+            <button class="button button-light" id="heroOpenAD">Abrir AD Control <span>→</span></button>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="radar-ring"></div>
+            <svg class="plane-art" viewBox="0 0 360 220"><path d="M26 123 142 105 203 23c5-7 15-5 16 4l-8 75 99 25c9 2 9 12 0 15l-101 18-21 48c-3 7-13 6-15-1l-14-42-133-27c-9-2-9-12 0-15Z" fill="url(#pg)" stroke="#d6e9ff" stroke-width="1.4"/><path d="m142 105 69 2M173 165l36-23" stroke="#8dbcf2" stroke-width="2" fill="none"/><defs><linearGradient id="pg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f4f9ff"/><stop offset="1" stop-color="#8dbcf2"/></linearGradient></defs></svg>
+            <div class="art-coord coord-one">AD / TRACKING<br><b>737 series</b></div><div class="art-coord coord-two">FLEET MONITORING<br><b>LIVE WORKSPACE</b></div>
+          </div>
+        </div>
+
+        <div class="section-title-row"><div><h2>Tu espacio de trabajo</h2><p>Selecciona un módulo para continuar.</p></div><span class="section-caption">MÓDULOS DISPONIBLES</span></div>
+        <div class="module-grid">
+          <button class="module-card featured" id="cardAD" type="button">
+            <div class="module-card-top"><span class="module-icon icon-blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5m0 14h16M7 15l4-4 3 2 5-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="6" r="2" fill="currentColor"/></svg></span><span class="card-arrow">↗</span></div>
+            <div class="module-card-body"><span class="module-kicker">REGULATORY MONITORING</span><h3>AD Control</h3><p>Consulta el registro de directivas, revisa los detalles y visualiza las AD pendientes de evaluación.</p></div>
+            <div class="module-card-footer"><span><b id="dashboardADCount">0</b> registros activos</span><span class="open-module">Abrir módulo <b>→</b></span></div>
+          </button>
+          <div class="module-card disabled-card" aria-label="Módulo próximamente">
+            <div class="module-card-top"><span class="module-icon icon-purple"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5v-9Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4.5 7.8 7.5 4.4 7.5-4.4M12 12.2V21" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span><span class="soon-pill">PRÓXIMAMENTE</span></div>
+            <div class="module-card-body"><span class="module-kicker">FLEET CONFIGURATION</span><h3>Fleet Registry</h3><p>Configuración avanzada de matrículas, números de serie y componentes por aeronave.</p></div>
+            <div class="module-card-footer"><span>En planificación</span><span class="muted-arrow">↗</span></div>
+          </div>
+          <div class="module-card disabled-card" aria-label="Módulo próximamente">
+            <div class="module-card-top"><span class="module-icon icon-amber"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="soon-pill">PRÓXIMAMENTE</span></div>
+            <div class="module-card-body"><span class="module-kicker">AUDIT & REPORTING</span><h3>Reports</h3><p>Historial de cambios y reportes exportables para seguimiento interno y auditorías.</p></div>
+            <div class="module-card-footer"><span>En planificación</span><span class="muted-arrow">↗</span></div>
+          </div>
+        </div>
+        <div class="notice-banner"><span class="notice-symbol">i</span><div><strong>Información de sincronización</strong><p>Los datos mostrados provienen de la API pública de la FAA y se filtran según los modelos B-737 definidos en tu servidor.</p></div></div>
+      </section>
+
+      <section id="adView" class="view hidden">
+        <div class="page-heading ad-heading">
+          <div>
+            <button class="back-button" id="backDashboard"><span>←</span> Volver al Dashboard</button>
+            <div class="eyebrow">REGULATORY MONITORING / FLEET FILTER</div>
+            <h1>AD <span>List</span></h1>
+            <p>Registro histórico de directivas de aeronavegabilidad identificadas para revisión de la flota.</p>
+          </div>
+          
+          <!-- Contenedor agrupado de acciones/portales -->
+          <div class="actions-container">
+            <div class="heading-actions"><button class="button button-secondary" id="exportCSV"><span>↓</span> Exportar CSV</button></div>
+            <div class="heading-actions"><a href="https://www.myboeingfleet.com/" target="_blank" rel="noopener noreferrer" class="button button-secondary" id="myBoeingFleet">🌐 My Boeing Fleet</a></div>
+            <div class="heading-actions"><a href="https://www.mycfmportal.com" target="_blank" rel="noopener noreferrer" class="button button-secondary" id="myCFMPortal">🌐 My CFM Portal</a></div>
+            <div class="heading-actions"><a href="https://i2trekviz.somoscopa.com/#/signin?externalRedirect=%2Ft%2FCopaVizHub%2Fviews%2FTechnicalRecords-COPAHoldingFleetEffectivityList%2FCOPAHoldingFleetEffectivityList%3F%3Aiid%3D1%26%3Aredirect%3Dauth&site=CopaVizHub" target="_blank" rel="noopener noreferrer" class="button button-secondary" id="Tableau">🌐 Tableau server</a></div>
+          </div>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric-card"><div class="metric-label">TOTAL REGISTRADAS <span class="metric-icon">▤</span></div><div class="metric-value" id="metricTotal">0</div><div class="metric-foot">AD sincronizadas en la sesión</div></div>
+          <div class="metric-card"><div class="metric-label">POR REVISAR <span class="metric-icon warning-icon">⚠</span></div><div class="metric-value" id="metricReview">0</div><div class="metric-foot">Requieren evaluación de aplicabilidad</div></div>
+          <div class="metric-card"><div class="metric-label">MODELO DE FLOTA <span class="metric-icon">✈</span></div><div class="metric-value metric-model" id="metricFleet">Boeing 737</div><div class="metric-foot">Filtro de aplicabilidad activo</div></div>
+        </div>
+
+        <div class="list-panel">
+          <div class="list-panel-header">
+            <div><h2>AD List</h2><p>Selecciona una directiva para ver sus detalles.</p></div>
+            <button class="text-button" id="configureFleet">⚙ Configurar modelo</button>
+          </div>
+          <div class="filters">
+            <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Buscar AD, subject, fabricante..." autocomplete="off"></label>
+            <label class="filter-select"><span>Estado</span><select id="statusFilter"><option value="all">Todos los estados</option><option value="Reviewed">Reviewed</option><option value="Pending">Pending</option></select></label>
+            <label class="filter-select"><span>Clasificación</span><select id="typeFilter"><option value="all">Todas las AD</option><option value="aircraft">Aeronave / modelo</option><option value="component">Componente ⚠</option></select></label>
+            <label class="filter-select"><span>Año</span><select id="yearFilter"><option value="all">Todos los años</option></select></label>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>AD NUMBER</th><th>MAKE</th><th>MODEL</th><th>SUBJECTS</th><th>ATA CHAPTER</th><th>CITATION PUBLISH DATE</th><th>EFFECTIVE DATE</th><th>STATUS</th></tr></thead>
+              <tbody id="adTableBody"></tbody>
+            </table>
+            <div id="emptyState" class="empty-state hidden"><div class="empty-icon">⌕</div><h3>No se encontraron AD</h3><p>Verifica que el servidor backend Node.js esté ejecutándose o prueba con otros filtros.</p></div>
+          </div>
+          <div class="table-footer"><span id="tableCount">Mostrando 0 registros</span><span>Datos obtenidos desde la FAA</span></div>
+        </div>
+        <div class="warning-note"><span>⚠</span><p><strong>Revisión de componentes:</strong> las AD dirigidas a motores, APUs o accesorios genéricos requieren confirmación de parte del usuario para verificar si están instalados o en inventario.</p></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <div class="modal detail-modal">
+      <div class="modal-header"><div><div class="eyebrow">AIRWORTHINESS DIRECTIVE</div><h2 id="detailTitle">AD Details</h2></div><button class="icon-button" id="closeDetail" aria-label="Cerrar">×</button></div>
+      <div id="detailContent"></div>
+      <div class="modal-footer"><button class="button button-secondary" id="closeDetailBottom">Cerrar</button></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop hidden" id="formModal" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+    <div class="modal form-modal">
+      <div class="modal-header"><div><div class="eyebrow">AD RECORD MANAGEMENT</div><h2 id="formTitle">Añadir registro AD</h2><p>Los campos marcados con * son obligatorios.</p></div><button class="icon-button" id="closeForm" aria-label="Cerrar">×</button></div>
+      <form id="adForm">
+        <input type="hidden" id="recordId">
+        <div class="form-grid">
+          <label>AD Number *<input id="fNumber" required placeholder="Ej. 2026-01-01"></label>
+          <label>Status *<select id="fStatus" required><option>Current</option><option>Superseded</option><option>Pending review</option></select></label>
+          <label class="span-two">Subject *<input id="fSubject" required placeholder="Ej. Flight Controls / Engine"></label>
+          <label>Citation Publish Date<input id="fPublishDate" type="date"></label>
+          <label>Effective Date<input id="fEffectiveDate" type="date"></label>
+          <label>Make (fabricante)<input id="fMake" placeholder="The Boeing company"></label>
+          <label>Model<input id="fModel" placeholder="737-700 / 737-10"></label>
+          <label>CFR Part Reference<input id="fCFR" placeholder="Ej. 14 CFR Part 39"></label>
+          <label>Tipo de registro *<select id="fType"><option value="aircraft">Aeronave / modelo</option><option value="component">Componente — requiere revisión ⚠</option></select></label>
+          <label class="span-two">AD Description<textarea id="fDescription" rows="3" placeholder="Descripción basada en la publicación oficial"></textarea></label>
+          <label class="span-two">AD Summary<textarea id="fSummary" rows="3" placeholder="Breve resumen para consulta rápida"></textarea></label>
+          <label class="span-two">Official document link<input id="fLink" type="url" placeholder="https://..."></label>
+          <label class="span-two">Notas de revisión<textarea id="fNotes" rows="2" placeholder="Notas internas (opcional)"></textarea></label>
+        </div>
+        <div class="form-hint"><span>ⓘ</span> Añadir un registro manual permite rastrear directivas no capturadas automáticamente.</div>
+        <div class="modal-footer"><button type="button" class="button button-secondary" id="cancelForm">Cancelar</button><button type="submit" class="button button-primary">Guardar registro</button></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop hidden" id="fleetModal" role="dialog" aria-modal="true" aria-labelledby="fleetTitle">
+    <div class="modal fleet-modal">
+      <div class="modal-header"><div><div class="eyebrow">FLEET CONFIGURATION</div><h2 id="fleetTitle">Modelo de flota</h2><p>El modelo se usa como referencia para clasificar los registros.</p></div><button class="icon-button" id="closeFleet" aria-label="Cerrar">×</button></div>
+      <form id="fleetForm">
+        <label>Modelo principal de aeronave<input id="fleetModelInput" placeholder="Ej. Boeing 737"></label>
+        <p class="form-hint"><span>ⓘ</span> La lista se actualiza según los filtros del servidor Node.js asignados a la flota 737.</p>
+        <div class="modal-footer"><button type="button" class="button button-secondary" id="cancelFleet">Cancelar</button><button type="submit" class="button button-primary">Guardar modelo</button></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
+  <script src="adlistapp.js"></script>
+</body>
+</html>
