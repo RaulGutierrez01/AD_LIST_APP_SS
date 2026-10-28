@@ -86,6 +86,7 @@ app.get('/api/ads', async (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Servidor de integración 737 FAA corriendo en http://localhost:${PORT}`);
+// Único punto de inicio del servidor compatible con la nube y local
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Servidor de integración A330 FAA corriendo en el puerto ${PORT}`);
 });
