@@ -1,26 +1,30 @@
 const express = require('express');
 const cors = require('cors');
- 
+
 const app = express();
 const PORT = process.env.PORT || 3000;
- 
-app.use(cors());
- 
+
+//app.use(cors());
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
+});
+
 // Modelos de tu flota 737 series 
 const FLOTA_MODELOS = ["737-700", "737-800", "737-8", "737-9", "737-10"];
- 
+
 function parseAndFilterAD(doc) {
     const title = doc.title || "";
     const abstract = doc.abstract || "";
     const fullText = `${title} ${abstract}`.toLowerCase();
+    
     const componentKeywords = [
         "engine", "propeller", "generator", "valve", "sensor", 
         "apu", "landing gear", "component", "part", "fuel pump", "actuator", "cfm", "rr trent"
     ];
- 
+
     const matchesFleet = FLOTA_MODELOS.some(modelo => fullText.includes(modelo));
     const isComponent = componentKeywords.some(kw => fullText.includes(kw));
- 
+
     if (matchesFleet) {
         return {
             id: doc.document_number,
@@ -58,40 +62,30 @@ function parseAndFilterAD(doc) {
             createdAt: new Date().toISOString()
         };
     }
- 
+
     return null;
 }
- 
+
 app.get('/api/ads', async (req, res) => {
     try {
         const faaUrl = 'https://www.federalregister.gov/api/v1/documents.json?conditions[agencies][]=federal-aviation-administration&conditions[term]=Airworthiness Directives';
-        // Petición con User-Agent obligatorio para evitar bloqueos del gobierno de EE. UU.
-        const apiResponse = await fetch(faaUrl, {
-            headers: {
-                'User-Agent': ''B737-AD-Monitor-App (larmuellesv@copaair.com)''
-            }
-        });
- 
-        if (!apiResponse.ok) {
-            throw new Error(`Error en la API externa: ${apiResponse.status}`);
-        }
- 
+        
+        const apiResponse = await fetch(faaUrl);
         const data = await apiResponse.json();
- 
+
         if (!data.results) return res.json([]);
- 
+
         const filteredADs = data.results
             .map(doc => parseAndFilterAD(doc))
             .filter(Boolean);
- 
+
         res.json(filteredADs);
     } catch (err) {
         console.error("Error al obtener ADs de la FAA:", err);
-        res.status(500).json({ error: "Error al sincronizar datos oficiales.", details: err.message });
+        res.status(500).json({ error: "Error al sincronizar datos oficiales." });
     }
 });
- 
-// Único punto de inicio del servidor compatible con la nube y local
-app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Servidor de integración A330 FAA corriendo en el puerto ${PORT}`);
+
+app.listen(PORT, () => {
+    console.log(`Servidor de integración 737 FAA corriendo en http://localhost:${PORT}`);
 });
