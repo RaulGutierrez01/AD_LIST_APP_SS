@@ -95,7 +95,7 @@
 
   async function loadData() {
     try {
-      const res = await fetch("http://localhost:1000/api/ads");
+      const res = await fetch("https://ad-list-app-ss.onrender.com/");
       if (res.ok) {
         const fetchedRecords = await res.json();
         records = fetchedRecords.map((r) => ({
